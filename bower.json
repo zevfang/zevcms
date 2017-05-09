@@ -1,0 +1,20 @@
+{
+  "name": "zevcms",
+  "homepage": "https://github.com/zevfang/zevcms",
+  "authors": [
+    "Commissar <fangwei0505@gmail.com>"
+  ],
+  "description": "bower",
+  "license": "1.0.0",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "static/assets",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}
