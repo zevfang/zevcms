@@ -8,8 +8,8 @@ type HomeController struct {
 	beego.Controller
 }
 
-func (c *HomeController) Get() {
-	c.Data["Website"] = "zevfang.com"
-	c.Data["Email"] = "fangwei0505@gmail.com"
-	c.TplName = "home.html"
+func (this *HomeController) Get() {
+
+	this.Data["IsHome"] = true
+	this.TplName = "home.html"
 }
