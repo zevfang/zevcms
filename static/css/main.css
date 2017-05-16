@@ -32,7 +32,7 @@ a:focus {
 }
 
 .navbar-boxshow {
-    box-shadow: 0px 2px 3px #888888;
+    box-shadow: 0px 1px 3px rgba(0,0,0,.25);
     border-top:2px solid #1b6d85;
 }
 .navbar-custom.is-fixed {

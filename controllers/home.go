@@ -11,5 +11,5 @@ type HomeController struct {
 func (this *HomeController) Get() {
 
 	this.Data["IsHome"] = true
-	this.TplName = "home.html"
+	this.TplName = "default/home.html"
 }

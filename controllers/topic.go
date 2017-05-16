@@ -6,5 +6,5 @@ type TopicController struct {
 
 func (this *TopicController) Get() {
 	this.Data["IsTopic"] = true
-	this.TplName = "topic.html"
+	this.TplName = "default/topic.html"
 }
