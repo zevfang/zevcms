@@ -27,7 +27,7 @@ a {
 
 a:hover,
 a:focus {
-    color: #0085a1;
+    /*color: #0085a1;*/
     text-decoration: none;
 }
 
@@ -88,55 +88,51 @@ a:focus {
     background: rgba(0, 0, 0, 0.12);
 }
 
-/*@media only screen and (min-width: 768px) {*/
-    /*.navbar-custom {*/
-        /*background: transparent;*/
-        /*border-bottom: 1px solid transparent;*/
-    /*}*/
-    /*.navbar-custom body {*/
-        /*!*font-size: 20px;*!*/
-    /*}*/
-    /*.navbar-custom .navbar-brand {*/
-        /*color: white;*/
-        /*!*padding: 20px;*!*/
-        /*line-height: 17px;*/
-    /*}*/
-    /*.navbar-custom .navbar-brand:hover,*/
-    /*.navbar-custom .navbar-brand:focus {*/
-        /*color: rgba(255, 255, 255, 0.8);*/
-    /*}*/
+.tag-label{
+    padding: .2em .6em .3em;
+    line-height: 2.5;
+}
 
-    /*.navbar-custom .nav li a {*/
-        /*color: white;*/
-        /*!*padding: 20px;*!*/
-    /*}*/
+.col-center-block {
+    float: none;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+/*文章*/
 
-    /*.navbar-custom .nav li a:hover,*/
-    /*.navbar-custom .nav li a:focus {*/
-        /*color: #FC7097;*/
-    /*}*/
+.well {
+    min-height: 20px;
+    padding: 19px;
+    margin-bottom: 30px;
+    border-radius: 4px;
+    background-color: #ffffff;
 
-    /*.navbar-custom .nav li a:active {*/
-        /*background: none;*/
-    /*}*/
-/*}*/
+    -webkit-box-shadow: 0 0px 5px #c2c2c2;
+    -moz-box-shadow: 0 0px 5px #c2c2c2;
+    box-shadow: 0 0px 5px #c2c2c2;
+}
+.article {
+    position: relative;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+}
+.title-article{
+    padding: 20px 15px 0px 15px;
+}
 
-/*@media only screen and (min-width: 1170px) {*/
-    /*.navbar-custom {*/
-        /*-ms-transform: translate3d(0, 0, 0);*/
-        /*-o-transform: translate3d(0, 0, 0);*/
-        /*transform: translate3d(0, 0, 0);*/
-        /*backface-visibility: hidden;*/
-    /*}*/
-    /*.navbar-custom.is-fixed .nav li a,*/
-    /*.navbar-custom.is-fixed .navbar-brand {*/
-        /*color: #404040;*/
-    /*}*/
+.tag-article {
+    text-align: center;
+    line-height: 24px;
+    margin: 20px;
+}
 
-    /*.navbar-custom.is-fixed .nav li a:hover,*/
-    /*.navbar-custom.is-fixed .nav li a:focus,*/
-    /*.navbar-custom.is-fixed .navbar-brand:hover,*/
-    /*.navbar-custom.is-fixed .navbar-brand:focus {*/
-        /*color: #0085a1;*/
-    /*}*/
-/*}*/
+/*底部*/
+
+.z-footer {
+    display: block;
+    text-align: left;
+    color: #eeeeee;
+    padding: 34px;
+    background-color: #3d4450;
+}
