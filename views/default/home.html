@@ -2,19 +2,12 @@
 
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
-
+    {{template "default/shared/head.html" .}}
 
     <title>首页</title>
-    <link rel="stylesheet" href="../static/assets/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../../static/assets/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../../static/assets/animate.css/animate.css">
     <link href="../../static/css/main.css" rel="stylesheet">
-    <link rel="stylesheet" href="../static/assets/animate.css/animate.css">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
     <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -23,171 +16,108 @@
 </head>
 
 <body class="animated fadeIn">
-
-<nav class="navbar navbar-fixed-top navbar-default navbar-custom  is-fixed">
-    <div class="container">
-
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-                    aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/">
-                <span class="brand-logo">
-                    ZevFang
-                </span>
-                's Blog
-            </a>
-        </div>
-
-        <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li><a href="#">主页</a></li>
-                <li><a href="#">关于</a></li>
-                <li><a href="#">归档</a></li>
-            </ul>
-            <form class="navbar-form navbar-right">
-                <div class="form-group">
-                    <input type="text" placeholder="Title" class="form-control">
-                </div>
-                <button type="submit" class="btn btn-success">检索</button>
-            </form>
-            <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                       aria-expanded="false">简体中文 <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">简体中文</a></li>
-                        <li><a href="#">English</a></li>
-
-                    </ul>
-                </li>
-            </ul>
-        </div><!--/.nav-collapse -->
-    </div>
-</nav>
-
+{{template "default/shared/navbar.html" .}}
 <div class="container">
     <div class="row">
         <div class="col-md-9">
-            <div class="panel panel-default animated zoomIn"  >
+            <div class="panel panel-default "  >
                 <div class="panel-body">
+                    <img src="http://upload-images.jianshu.io/upload_images/5889454-20670e344a65ae38.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"  style="width: 100%;height: 280px">
                     <h2>
-                        <a href="#"> My Title</a>
+                        <a href="/topic.html">被拒绝 100 次之后，我学会的事情</a>
                     </h2>
                     <p>
                         <i class="glyphicon glyphicon-calendar" aria-hidden="true"></i> 2016-11-22
                     </p>
-                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor
-                        mauris
-                        condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna
-                        mollis
-                        euismod. Donec sed odio dui. </p>
-
+                    <p>今天的故事，来自一个“全职对抗拒绝”的人。为了走出对被拒绝的恐惧，他开始了“尝试被拒绝的100天”计划，
+                        比如向陌生人借100块钱、邀请一个女孩出去吃饭、跟汉堡店要免费的“汉堡续杯”、一天之内找一份工作等等。 </p>
                 </div>
             </div>
-            <div class="panel panel-default">
+            <div class="panel panel-default "  >
                 <div class="panel-body">
-                    <h2>My Title</h2>
-                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor
-                        mauris
-                        condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna
-                        mollis
-                        euismod. Donec sed odio dui. </p>
-                    <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+                    <img src="http://www.yangqq.com/d/file/jstt/bj/2015-01-09/bb9e1b25215426d6c375e453c756f136.jpg"  style="width: 100%;height: 280px">
+                    <h2>
+                        <a href="/topic.html">想要更换网站的颜色/配色</a>
+                    </h2>
+                    <p>
+                        <i class="glyphicon glyphicon-calendar" aria-hidden="true"></i> 2016-11-22
+                    </p>
+                    <p>解答: 配色都是通过css来实现的，所以你需要修改css文件，包括style.css和bootstrap.css. </p>
                 </div>
             </div>
-            <div class="panel panel-default">
+            <div class="panel panel-default "  >
                 <div class="panel-body">
-                    <h2>My Title</h2>
-                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor
-                        mauris
-                        condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna
-                        mollis
-                        euismod. Donec sed odio dui. </p>
-                    <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+                    <h2>
+                        <a href="/topic.html">Bootstrap隐藏滑动侧边栏jQuery插件</a>
+                    </h2>
+                    <p>
+                        <i class="glyphicon glyphicon-calendar" aria-hidden="true"></i> 2016-11-22
+                    </p>
+                    <p>BootSideMenu是一款基于Bootstrap的jQuery隐藏滑动侧边栏特效插件。该隐藏滑动侧边栏基于Bootstrap 3制作，
+                        简单实用。菜单面板可以从屏幕的左侧或右侧进行隐藏显示。 </p>
                 </div>
             </div>
-            <div class="panel panel-default">
+            <div class="panel panel-default "  >
                 <div class="panel-body">
-                    <h2>My Title</h2>
-                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor
-                        mauris
-                        condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna
-                        mollis
-                        euismod. Donec sed odio dui. </p>
-                    <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-                </div>
-            </div>
-            <div class="panel panel-default">
-                <div class="panel-body">
-                    <h2>My Title</h2>
-                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor
-                        mauris
-                        condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna
-                        mollis
-                        euismod. Donec sed odio dui. </p>
-                    <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-                </div>
-            </div>
-            <div class="panel panel-default">
-                <div class="panel-body">
-                    <h2>My Title</h2>
-                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor
-                        mauris
-                        condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna
-                        mollis
-                        euismod. Donec sed odio dui. </p>
-                    <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+                    <h2>
+                        <a href="/topic.html">我们身处实体经济核聚变的前夜</a>
+                    </h2>
+                    <p>
+                        <i class="glyphicon glyphicon-calendar" aria-hidden="true"></i> 2016-11-22
+                    </p>
+                    <p>我从1998年开始研究两个主要的题目， 一个是中国企业的发展，一个是互联网带来的商业大变革。 20年来，我见过联想，华为到阿里，腾讯这一代代企业的风起云涌，也见过互联网一轮轮的泡沫和创新. </p>
                 </div>
             </div>
             <nav aria-label="...">
                 <ul class="pager">
-                    <li class="previous"><a href="#"><span aria-hidden="true">&larr;</span> Older</a></li>
-                    <li class="next"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
+                    <li class="previous"><a href="#"><span aria-hidden="true">&larr;</span>上一页</a></li>
+                    <li class="next"><a href="#">下一页 <span aria-hidden="true">&rarr;</span></a></li>
                 </ul>
             </nav>
         </div>
 
         <div class="col-md-3">
 
-            <div class="thumbnail">
+            <div class="thumbnail visible-md visible-lg">
                 <img data-src="holder.js/100%x180" alt="100%x180"
-                     src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTQ4IiBoZWlnaHQ9IjE4MCIgdmlld0JveD0iMCAwIDE0OCAxODAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzEwMCV4MTgwCkNyZWF0ZWQgd2l0aCBIb2xkZXIuanMgMi42LjAuCkxlYXJuIG1vcmUgYXQgaHR0cDovL2hvbGRlcmpzLmNvbQooYykgMjAxMi0yMDE1IEl2YW4gTWFsb3BpbnNreSAtIGh0dHA6Ly9pbXNreS5jbwotLT48ZGVmcz48c3R5bGUgdHlwZT0idGV4dC9jc3MiPjwhW0NEQVRBWyNob2xkZXJfMTViZjIxZTQyNGMgdGV4dCB7IGZpbGw6I0FBQUFBQTtmb250LXdlaWdodDpib2xkO2ZvbnQtZmFtaWx5OkFyaWFsLCBIZWx2ZXRpY2EsIE9wZW4gU2Fucywgc2Fucy1zZXJpZiwgbW9ub3NwYWNlO2ZvbnQtc2l6ZToxMHB0IH0gXV0+PC9zdHlsZT48L2RlZnM+PGcgaWQ9ImhvbGRlcl8xNWJmMjFlNDI0YyI+PHJlY3Qgd2lkdGg9IjE0OCIgaGVpZ2h0PSIxODAiIGZpbGw9IiNFRUVFRUUiLz48Zz48dGV4dCB4PSI0OC4wNTQ2ODc1IiB5PSI5NC41Ij4xNDh4MTgwPC90ZXh0PjwvZz48L2c+PC9zdmc+"
-                     data-holder-rendered="true" style="height: 220px; width: 100%; display: block;">
+                     src="https://avatars0.githubusercontent.com/u/12129455?v=3&amp;s=460"
+                     data-holder-rendered="true" style=" width: 100%; display: block;">
+            </div>
+
+            <div class="list-group">
+                <a href="/" class="list-group-item active"><span class="badge">14</span>生活系列</a>
+                <a href="#" class="list-group-item"><span class="badge">4</span>公众号</a>
+                <a href="#" class="list-group-item"><span class="badge">34</span>Goalng</a>
+                <a href="#" class="list-group-item"><span class="badge">10</span>C#</a>
+                <a href="#" class="list-group-item"><span class="badge">2</span>NodeJs</a>
             </div>
 
             <div class="panel panel-default">
                 <div class="panel-body">
-                    <span class="label label-default">Default</span>
-                    <span class="label label-primary">Primary</span>
-                    <span class="label label-success">Success</span>
-                    <span class="label label-info">Info</span>
-                    <span class="label label-warning">Warning</span>
-                    <span class="label label-danger">Danger</span>
+                    <span class="label label-warning tag-label">Golang随笔</span>
+                    <span class="label label-default tag-label">微软云</span>
+                    <span class="label label-primary tag-label">异步</span>
+                    <span class="label label-success tag-label">C#</span>
+                    <span class="label label-info tag-label">开源</span>
+                    <span class="label label-warning tag-label">框架</span>
+                    <span class="label label-danger tag-label">PHP</span>
+                    <span class="label label-default tag-label">Default</span>
+                    <span class="label label-primary tag-label">NodeJs</span>
+                    <span class="label label-success tag-label">情感</span>
+                    <span class="label label-info tag-label">生活</span>
+                    <span class="label label-warning tag-label">Git</span>
+                    <span class="label label-danger tag-label">仓储</span>
+                    <span class="label label-default tag-label">系列</span>
 
                 </div>
             </div>
-            <ul class="list-group">
-                <li class="list-group-item active"><span class="badge">14</span>Cras justo odio</li>
-                <li class="list-group-item"><span class="badge">9</span>Dapibus ac facilisis in</li>
-                <li class="list-group-item"><span class="badge">1</span>Morbi leo risus</li>
-                <li class="list-group-item"><span class="badge">0</span>Porta ac consectetur ac</li>
-                <li class="list-group-item"><span class="badge">140</span>Vestibulum at eros</li>
-            </ul>
         </div>
 
     </div>
 
     <hr>
-
-    <footer>
-        <p>&copy; 2016 Company, Inc.</p>
-    </footer>
 </div>
+{{template "default/shared/footer.html" .}}
 <script src="../static/assets/jquery/dist/jquery.js"></script>
 <script src="../static/assets/bootstrap/dist/js/bootstrap.js"></script>
 </body>
