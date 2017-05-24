@@ -76,7 +76,6 @@ a:focus {
 
 
 .navbar-custom .nav li a {
-    text-transform: uppercase;
     font-size: 12px;
     line-height: 20px;
     font-weight: 800;
@@ -84,7 +83,7 @@ a:focus {
     text-shadow: 0 0 1px rgba(0,0,0,.1);
 }
 
-.navbar-custom .nav li a:active {
+.navbar-custom .nav li a:active a:hover {
     background: rgba(0, 0, 0, 0.12);
 }
 
@@ -112,14 +111,14 @@ a:focus {
     -moz-box-shadow: 0 0px 5px #c2c2c2;
     box-shadow: 0 0px 5px #c2c2c2;
 }
-.article {
-    position: relative;
-    margin-bottom: 30px;
-    padding-bottom: 20px;
-}
-.title-article{
-    padding: 20px 15px 0px 15px;
-}
+/*.article {*/
+    /*position: relative;*/
+    /*margin-bottom: 30px;*/
+    /*padding-bottom: 20px;*/
+/*}*/
+/*.title-article{*/
+    /*padding: 20px 15px 0px 15px;*/
+/*}*/
 
 .tag-article {
     text-align: center;
@@ -135,4 +134,21 @@ a:focus {
     color: #eeeeee;
     padding: 34px;
     background-color: #3d4450;
+}
+
+/*标签*/
+.tag-panel {
+    text-align: center;
+}
+
+.tag-label-a{
+    padding: .2em .6em .3em;
+    margin: 0 0 10px 0;
+}
+.tag_list{
+    padding-bottom: 0px;
+}
+.tag_list a{
+    font-size: 15px;
+    line-height: 25px;
 }
