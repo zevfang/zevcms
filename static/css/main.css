@@ -111,14 +111,6 @@ a:focus {
     -moz-box-shadow: 0 0px 5px #c2c2c2;
     box-shadow: 0 0px 5px #c2c2c2;
 }
-/*.article {*/
-    /*position: relative;*/
-    /*margin-bottom: 30px;*/
-    /*padding-bottom: 20px;*/
-/*}*/
-/*.title-article{*/
-    /*padding: 20px 15px 0px 15px;*/
-/*}*/
 
 .tag-article {
     text-align: center;
@@ -146,9 +138,50 @@ a:focus {
     margin: 0 0 10px 0;
 }
 .tag_list{
-    padding-bottom: 0px;
+    /*padding-bottom: 0px;*/
+    margin: 0 20px 0 20px;
 }
 .tag_list a{
-    font-size: 15px;
+    font-size: 14px;
     line-height: 25px;
+}
+/*归档*/
+.ar-callout {
+    padding: 20px;
+    margin: 0 0 10px 0px;
+    border: 1px solid #eee;
+    border-left-width: 5px;
+    border-radius: 3px;
+}
+.ar-callout h4 {
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+.ar-callout p {
+    font-size: 14px;
+}
+.ar-callout p:last-child {
+    margin-bottom: 0;
+}
+.ar-callout code {
+    border-radius: 3px;
+}
+/* Variations */
+.ar-callout-danger {
+    border-left-color: #ce4844;
+}
+.ar-callout-danger h4 {
+    color: #ce4844;
+}
+.ar-callout-warning {
+    border-left-color: #aa6708;
+}
+.ar-callout-warning h4 {
+    color: #aa6708;
+}
+.ar-callout-info {
+    border-left-color: #1b809e;
+}
+.ar-callout-info h4 {
+    color: #1b809e;
 }

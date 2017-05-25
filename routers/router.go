@@ -10,4 +10,5 @@ func init() {
 	beego.Router("/category", &controllers.CategoryController{})
 	beego.Router("/topic", &controllers.TopicController{})
 	beego.Router("/tags", &controllers.TagsController{})
+	beego.Router("/archives",&controllers.ArchivesController{})
 }
