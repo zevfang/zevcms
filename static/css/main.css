@@ -100,18 +100,6 @@ a:focus {
 }
 /*文章*/
 
-.well {
-    min-height: 20px;
-    padding: 19px;
-    margin-bottom: 30px;
-    border-radius: 4px;
-    background-color: #ffffff;
-
-    -webkit-box-shadow: 0 0px 5px #c2c2c2;
-    -moz-box-shadow: 0 0px 5px #c2c2c2;
-    box-shadow: 0 0px 5px #c2c2c2;
-}
-
 .tag-article {
     text-align: center;
     line-height: 24px;
@@ -128,23 +116,7 @@ a:focus {
     background-color: #3d4450;
 }
 
-/*标签*/
-.tag-panel {
-    text-align: center;
-}
 
-.tag-label-a{
-    padding: .2em .6em .3em;
-    margin: 0 0 10px 0;
-}
-.tag_list{
-    /*padding-bottom: 0px;*/
-    margin: 0 20px 0 20px;
-}
-.tag_list a{
-    font-size: 14px;
-    line-height: 25px;
-}
 /*归档*/
 .ar-callout {
     padding: 20px;
