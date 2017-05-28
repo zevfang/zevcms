@@ -87,17 +87,13 @@ a:focus {
     background: rgba(0, 0, 0, 0.12);
 }
 
-.tag-label{
+.tag-label-a{
+    margin-bottom: 5px ;
     padding: .2em .6em .3em;
-    line-height: 2.5;
+    line-height: 2.0;
+
 }
 
-.col-center-block {
-    float: none;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
 /*文章*/
 
 .tag-article {
@@ -105,6 +101,7 @@ a:focus {
     line-height: 24px;
     margin: 20px;
 }
+
 
 /*底部*/
 
