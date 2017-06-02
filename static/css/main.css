@@ -108,12 +108,18 @@ a:focus {
 .z-footer {
     display: block;
     text-align: left;
-    color: #eeeeee;
-    padding: 34px;
-    background-color: #3d4450;
+    color: #333;/*eeeeee*/
+    padding: 10px;
+    background-color: #e3e3e3;/*3d4450*/
 }
 
+.z-footer p{
+    margin: 24px 0px auto 0px;
+}
 
+.z-footer .linkicon{
+    margin-top: 16px;
+}
 /*归档*/
 .ar-callout {
     padding: 20px;
