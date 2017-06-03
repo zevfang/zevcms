@@ -29,7 +29,9 @@
                         <i class="glyphicon glyphicon-calendar" aria-hidden="true"></i> 2016-11-22
                     </p>
                     <p>今天的故事，来自一个“全职对抗拒绝”的人。为了走出对被拒绝的恐惧，他开始了“尝试被拒绝的100天”计划，
-                        比如向陌生人借100块钱、邀请一个女孩出去吃饭、跟汉堡店要免费的“汉堡续杯”、一天之内找一份工作等等。</p>
+                        比如向陌生人借100块钱、邀请一个女孩出去吃饭、跟汉堡店要免费的“汉堡续杯”、一天之内找一份工作等等。
+
+                    </p>
                 </div>
             </div>
             <div class="thumbnail">
@@ -64,8 +66,8 @@
             </div>
             <nav aria-label="...">
                 <ul class="pager">
-                    <li class="previous"><a href="#"><span aria-hidden="true">&larr;</span>上一页</a></li>
-                    <li class="next"><a href="#">下一页 <span aria-hidden="true">&rarr;</span></a></li>
+                    <li class="previous"><a href="#"><span aria-hidden="true">&larr;</span>{{i18n .Lang "previous"}}</a></li>
+                    <li class="next"><a href="#">{{i18n .Lang "next"}}<span aria-hidden="true">&rarr;</span></a></li>
                 </ul>
             </nav>
         </div>
@@ -76,7 +78,5 @@
     </div>
 </div>
 {{template "default/shared/footer.html" .}}
-<script src="/static/assets/jquery/dist/jquery.js"></script>
-<script src="/static/assets/bootstrap/dist/js/bootstrap.js"></script>
 </body>
 </html>
