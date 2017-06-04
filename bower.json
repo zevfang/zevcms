@@ -18,6 +18,7 @@
     "bootstrap": "^3.3.7",
     "animate.css": "^3.5.2",
     "font-awesome": "fontawesome#^4.7.0",
-    "jquery.cookie": "^1.4.1"
+    "jquery.cookie": "^1.4.1",
+    "AdminLTE": "adminlte#^2.3.11"
   }
 }
