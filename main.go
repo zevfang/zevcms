@@ -15,7 +15,15 @@ func main() {
 	beego.Router("/tags", &controllers.TagsController{})
 	beego.Router("/archives", &controllers.ArchivesController{})
 
-	beego.AddFuncMap("i18n", i18n.Tr)
+	ns := beego.NewNamespace("/admin",
+		beego.NSRouter("/", &controllers.AdminController{}),
+		beego.NSRouter("/main", &controllers.AdminController{}),
+		beego.NSRouter("/login", &controllers.LoginController{}),
+		beego.NSRouter("/category", &controllers.CategoryController{},"get:CategoryList"),
+	)
 
+	beego.AddNamespace(ns)
+
+	beego.AddFuncMap("i18n", i18n.Tr)
 	beego.Run()
 }
