@@ -9,57 +9,20 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
     <link rel="stylesheet" href="/static/assets/AdminLTE/dist/css/AdminLTE.min.css">
-    <!-- AdminLTE Skins. Choose a skin from the css/skins
-         folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="/static/assets/AdminLTE/dist/css/skins/_all-skins.min.css">
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
-<!-- ADD THE CLASS layout-top-nav TO REMOVE THE SIDEBAR. -->
-<body class="hold-transition skin-blue layout-top-nav">
+<body class="hold-transition skin-blue-light layout-top-nav">
 <div class="wrapper">
-
     {{template "admin/shared/navbar.html" .}}
-    <!-- Full Width Column -->
     <div class="content-wrapper">
-        <div class="container">
-            <!-- Content Header (Page header) -->
-            <section class="content-header">
-                <h1>
-                    统计信息
-                    <small>Example 2.0</small>
-                </h1>
-                <ol class="breadcrumb">
-                    <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                    <li><a href="#">Layout</a></li>
-                    <li class="active">Top Navigation</li>
-                </ol>
-            </section>
-
-            <!-- Main content -->
-            <section class="content">
-
-                <div class="box box-default">
-                    <div class="box-header with-border">
-                        <h3 class="box-title">Blank Box</h3>
-                    </div>
-                    <div class="box-body">
-                        The great content goes here
-                    </div>
-                    <!-- /.box-body -->
-                </div>
-                <!-- /.box -->
-            </section>
-            <!-- /.content -->
-        </div>
-        <!-- /.container -->
+        <iframe id="main-frame" onload="iFrameHeight()" src="" scrolling="no" frameBorder="no" width="100%"></iframe>
     </div>
-    <!-- /.content-wrapper -->
     {{template "admin/shared/footer.html" .}}
 </div>
-<!-- ./wrapper -->
 
 <script src="/static/assets/AdminLTE/plugins/jQuery/jquery-2.2.3.min.js"></script>
 <script src="/static/assets/AdminLTE/bootstrap/js/bootstrap.min.js"></script>
@@ -67,5 +30,24 @@
 <script src="/static/assets/AdminLTE/plugins/fastclick/fastclick.js"></script>
 <script src="/static/assets/AdminLTE/dist/js/app.min.js"></script>
 <script src="/static/assets/AdminLTE/dist/js/demo.js"></script>
+
+<script type="text/javascript" language="javascript">
+    //导航切换器
+    $(function () {
+        $(".target-menu").click(function () {
+            var url = $(this).attr("data-url");
+            $("#main-frame").attr("src", url);
+        });
+    })
+    //iframe自适应内容高度js
+    function iFrameHeight() {
+        var ifm = document.getElementById("main-frame");
+        var subWeb = document.frames ? document.frames["main-frame"].document :
+            ifm.contentDocument;
+        if (ifm != null && subWeb != null) {
+            ifm.height = subWeb.body.scrollHeight;
+        }
+    }
+</script>
 </body>
 </html>
