@@ -19,7 +19,10 @@ func main() {
 		beego.NSRouter("/", &controllers.AdminController{}),
 		beego.NSRouter("/main", &controllers.AdminController{}),
 		beego.NSRouter("/login", &controllers.LoginController{}),
-		beego.NSRouter("/category", &controllers.CategoryController{},"get:CategoryList"),
+		beego.NSRouter("/category", &controllers.CategoryController{}, "get:CategoryList"),
+		beego.NSNamespace("/topic",
+			beego.NSRouter("/list", &controllers.TopicController{}, "get:TopicList"),
+		),
 	)
 
 	beego.AddNamespace(ns)
