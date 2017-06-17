@@ -4,10 +4,16 @@ import (
 	"github.com/astaxie/beego"
 	"zevcms/controllers"
 	"github.com/beego/i18n"
+	"zevcms/models"
+	"github.com/astaxie/beego/orm"
 )
 
 func main() {
+	models.InitModels()
 	controllers.InitApp()
+
+	orm.Debug = true
+	orm.RunSyncdb("default", false, true)
 
 	beego.Router("/", &controllers.HomeController{})
 	beego.Router("/category", &controllers.CategoryController{})
@@ -19,7 +25,11 @@ func main() {
 		beego.NSRouter("/", &controllers.AdminController{}),
 		beego.NSRouter("/main", &controllers.AdminController{}),
 		beego.NSRouter("/login", &controllers.LoginController{}),
-		beego.NSRouter("/category", &controllers.CategoryController{}, "get:CategoryList"),
+		beego.NSNamespace("/category",
+			beego.NSRouter("/list", &controllers.CategoryController{}, "get:CategoryList"),
+			beego.NSRouter("/add", &controllers.CategoryController{}, "post:AddCategory"),
+			beego.NSRouter("/edit", &controllers.CategoryController{}, "get,post:UpdCategory"),
+		),
 		beego.NSNamespace("/topic",
 			beego.NSRouter("/list", &controllers.TopicController{}, "get:TopicList"),
 		),

@@ -14,12 +14,24 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+    <script type="text/javascript" language="javascript">
+        //iframe自适应内容高度js
+        function iFrameHeight() {
+            var ifm = document.getElementById("main-frame");
+            var subWeb = document.frames ? document.frames["main-frame"].document :
+                ifm.contentDocument;
+            if (ifm != null && subWeb != null) {
+                ifm.height = subWeb.body.scrollHeight;
+            }
+        }
+    </script>
 </head>
 <body class="hold-transition skin-blue-light layout-top-nav">
 <div class="wrapper">
     {{template "admin/shared/navbar.html" .}}
-    <div class="content-wrapper">
-        <iframe id="main-frame" onload="iFrameHeight()" src="" scrolling="no" frameBorder="no" width="100%"></iframe>
+    <div class="content-wrapper" style="background-color: #FFFFFF;">
+            <iframe id="main-frame" onload="iFrameHeight()" src="" scrolling="no" frameBorder="no" width="100%"></iframe>
     </div>
     {{template "admin/shared/footer.html" .}}
 </div>
@@ -39,15 +51,6 @@
             $("#main-frame").attr("src", url);
         });
     })
-    //iframe自适应内容高度js
-    function iFrameHeight() {
-        var ifm = document.getElementById("main-frame");
-        var subWeb = document.frames ? document.frames["main-frame"].document :
-            ifm.contentDocument;
-        if (ifm != null && subWeb != null) {
-            ifm.height = subWeb.body.scrollHeight;
-        }
-    }
 </script>
 </body>
 </html>
