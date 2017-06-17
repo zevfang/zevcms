@@ -159,15 +159,13 @@
     })
     function Del(id) {
         layer.confirm('确定要删除吗？', {
-            btn: ['那算了', '必须删']
-        }, function (index, layero) {
-            layer.close(index)
+            btn: ['必须删', '那算了']
         }, function () {
             $.get("/admin/category/del?id=" + id, function (data, status) {
                 var obj = JSON.parse(data);
                 if (obj.state == "y") {
                     layer.msg(obj.msg, {
-                        icon: 0,
+                        icon: 1,
                         time: 2000
                     }, function(){
                         window.location.href = "/admin/category/list";
@@ -177,6 +175,8 @@
                 }
 
             });
+        }, function (index, layero) {
+            layer.close(index)
         });
     }
 </script>
