@@ -13,6 +13,7 @@
     <![endif]-->
 
     <title>文章列表</title>
+
 </head>
 <body>
 <div class="container">
@@ -84,7 +85,9 @@
                                        data-toggle="modal" data-target="#myModal">
                                         <i class="fa fa-edit"></i>修改
                                     </a>
-                                    <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i></button>
+                                    <a class="btn btn-danger btn-xs" href="javascript:Del('{{.Id}}');">
+                                        <i class="fa fa-trash-o"></i>
+                                    </a>
                                 </td>
                             </tr>
                             {{end}}
@@ -124,10 +127,11 @@
 <script src="/static/assets/AdminLTE/dist/js/demo.js"></script>
 <script src="/static/assets/AdminLTE/plugins/iCheck/icheck.min.js"></script>
 <script src="/static/assets/bootstrapvalidator/dist/js/bootstrapValidator.js"></script>
+<script src="/static/assets/layer/src/layer.js"></script>
 
 <script type="text/javascript">
     $(function () {
-        $("#myModal").on("hidden.bs.modal", function() {
+        $("#myModal").on("hidden.bs.modal", function () {
             $(this).removeData("bs.modal");
         });
 
@@ -153,6 +157,28 @@
         })
 
     })
+    function Del(id) {
+        layer.confirm('确定要删除吗？', {
+            btn: ['那算了', '必须删']
+        }, function (index, layero) {
+            layer.close(index)
+        }, function () {
+            $.get("/admin/category/del?id=" + id, function (data, status) {
+                var obj = JSON.parse(data);
+                if (obj.state == "y") {
+                    layer.msg(obj.msg, {
+                        icon: 0,
+                        time: 2000
+                    }, function(){
+                        window.location.href = "/admin/category/list";
+                    });
+                } else {
+                    layer.msg(obj.msg);
+                }
+
+            });
+        });
+    }
 </script>
 </html>
 

@@ -43,3 +43,17 @@ func (this *CategoryController) UpdCategory() {
 	fmt.Println(this.Input().Get("id"))
 	this.TplName = "admin/category/edit.html"
 }
+
+func (this *CategoryController) DelCategory() {
+	cateId := this.Input().Get("id")
+	if len(cateId) == 0 {
+		beego.Error("非法访问")
+		this.Ctx.WriteString("{\"state\":\"n\",\"msg\":\"非法访问.\"}")
+	}
+	err := models.DelCategory(cateId)
+	if err != nil {
+		beego.Error(err)
+		this.Ctx.WriteString("{\"state\":\"n\",\"msg\":\"服务器错误.\"}")
+	}
+	this.Ctx.WriteString("{\"state\":\"y\",\"msg\":\"删除成功.\"}")
+}

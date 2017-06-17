@@ -29,6 +29,7 @@ func main() {
 			beego.NSRouter("/list", &controllers.CategoryController{}, "get:CategoryList"),
 			beego.NSRouter("/add", &controllers.CategoryController{}, "post:AddCategory"),
 			beego.NSRouter("/edit", &controllers.CategoryController{}, "get,post:UpdCategory"),
+			beego.NSRouter("/del:id", &controllers.CategoryController{}, "get:DelCategory"),
 		),
 		beego.NSNamespace("/topic",
 			beego.NSRouter("/list", &controllers.TopicController{}, "get:TopicList"),

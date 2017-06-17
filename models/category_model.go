@@ -42,3 +42,14 @@ func UpdCategory(id, cateName string) error {
 	}
 	return err
 }
+
+func DelCategory(id string) error {
+	cateid, err := strconv.ParseInt(id, 10, 64)
+	if err != nil {
+		return err
+	}
+	cate := &Category{Id: cateid}
+	o := orm.NewOrm()
+	_, err = o.Delete(cate)
+	return err
+}
