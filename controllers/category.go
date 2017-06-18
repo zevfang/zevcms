@@ -3,7 +3,6 @@ package controllers
 import (
 	"zevcms/models"
 	"github.com/astaxie/beego"
-	"fmt"
 )
 
 type CategoryController struct {
@@ -40,8 +39,35 @@ func (this *CategoryController) AddCategory() {
 }
 
 func (this *CategoryController) UpdCategory() {
-	fmt.Println(this.Input().Get("id"))
+
+	if this.Ctx.Request.Method == "GET" {
+		cateId := this.Input().Get("id")
+		if len(cateId) == 0 {
+			beego.Error("非法访问")
+			this.Redirect("/admin/category/list", 302)
+			return
+		}
+		cate, err := models.GetCategorySingle(cateId)
+		if err != nil {
+			beego.Error("没有数据")
+			this.Redirect("/admin/category/list", 302)
+			return
+		}
+		this.Data["Category"] = cate
+	}
+
+	if this.Ctx.Request.Method == "POST" {
+		cateId := this.Input().Get("Id")
+		cateName := this.Input().Get("CateName")
+		err := models.UpdCategory(cateId, cateName)
+		if err != nil {
+			beego.Error(err)
+		}
+		this.Redirect("/admin/category/list", 302)
+
+	}
 	this.TplName = "admin/category/edit.html"
+
 }
 
 func (this *CategoryController) DelCategory() {

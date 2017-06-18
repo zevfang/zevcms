@@ -16,9 +16,22 @@ type Category struct {
 func GetCategoryList() ([]*Category, error) {
 	o := orm.NewOrm()
 	cates := make([]*Category, 0)
-	qt := o.QueryTable("Category")
+	qt := o.QueryTable("category")
 	_, err := qt.All(&cates)
 	return cates, err
+}
+
+func GetCategorySingle(id string) (*Category, error) {
+	cateid, err := strconv.ParseInt(id, 10, 64)
+	if err != nil {
+		return nil, err
+	}
+	cate := new(Category)
+	o := orm.NewOrm()
+	qt := o.QueryTable("category")
+	err = qt.Filter("Id", cateid).One(cate)
+	return cate, err
+
 }
 
 func AddCategory(cateName string) error {
