@@ -16,104 +16,102 @@
 
 </head>
 <body>
-<div class="container">
-    <section class="content-header">
-        <h1>
-            标签列表
-            <small></small>
-        </h1>
-        <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i>首页</a></li>
-            <li class="active">标签管理</li>
-        </ol>
-    </section>
-    <section class="content">
-        <div class="row">
-            <div class="col-md-3">
+
+<section class="content-header">
+    <h1>
+        标签列表
+        <small></small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i>首页</a></li>
+        <li class="active">标签管理</li>
+    </ol>
+</section>
+<section class="content">
+    <div class="row">
+        <div class="col-md-3">
 
 
-                <div class="box box-default">
-                    <div class="box-header with-border">
-                        <h3 class="box-title">创建新标签</h3>
-                    </div>
-                    <!-- /.box-header -->
-                    <!-- form start -->
-                    <form id="myForm" method="post" action="/admin/tags/add" class="form-horizontal">
-                        <div class="box-body">
-                            <div class="form-group">
-                                <label for="TagName" class="control-label sr-only">标签名称</label>
-
-                                <div class="col-sm-12">
-                                    <input type="text" class="form-control" id="TagName" name="TagName"
-                                           placeholder="名称">
-                                </div>
-                            </div>
-
-                        </div>
-                        <!-- /.box-body -->
-                        <div class="box-footer">
-                            <button id="mySubmit" type="submit" class="btn btn-primary btn-block margin-bottom">保存
-                            </button>
-                        </div>
-                        <!-- /.box-footer -->
-                    </form>
+            <div class="box box-default">
+                <div class="box-header with-border">
+                    <h3 class="box-title">创建新标签</h3>
                 </div>
+                <!-- /.box-header -->
+                <!-- form start -->
+                <form id="myForm" method="post" action="/admin/tags/add" class="form-horizontal">
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label for="TagName" class="control-label sr-only">标签名称</label>
 
+                            <div class="col-sm-12">
+                                <input type="text" class="form-control" id="TagName" name="TagName"
+                                       placeholder="名称">
+                            </div>
+                        </div>
 
-            </div>
-            <!-- /.col -->
-            <div class="col-md-9">
-                <div class="box">
-                    <div class="box-body no-padding">
-                        <table class="table table-striped table-responsive">
-                            <tbody>
-                            <tr>
-                                <th style="width: 25px">#</th>
-                                <th>名称</th>
-                                <th style="width: 30%">时间</th>
-                                <th style="width: 80px">文章数</th>
-                                <th style="width: 120px">操作</th>
-                            </tr>
-                            {{range .TagsList}}
-                            <tr>
-                                <td>{{.Id}}</td>
-                                <td>{{.TagName}}</td>
-                                <td>{{.Created}}</td>
-                                <td>{{.TopicCount}}</td>
-                                <td align="center">
-                                    <a href="/admin/tags/edit?id={{.Id}}" class="btn btn-primary btn-xs"
-                                       data-toggle="modal" data-target="#myModal">
-                                        <i class="fa fa-edit"></i>修改
-                                    </a>
-                                    <a class="btn btn-danger btn-xs" href="javascript:Del('{{.Id}}');">
-                                        <i class="fa fa-trash-o"></i>
-                                    </a>
-                                </td>
-                            </tr>
-                            {{end}}
-                            </tbody>
-                        </table>
                     </div>
                     <!-- /.box-body -->
+                    <div class="box-footer">
+                        <button id="mySubmit" type="submit" class="btn btn-primary btn-block margin-bottom">保存
+                        </button>
+                    </div>
+                    <!-- /.box-footer -->
+                </form>
+            </div>
+
+
+        </div>
+        <!-- /.col -->
+        <div class="col-md-9">
+            <div class="box">
+                <div class="box-body no-padding">
+                    <table class="table table-striped table-responsive">
+                        <tbody>
+                        <tr>
+                            <th style="width: 25px">#</th>
+                            <th>名称</th>
+                            <th style="width: 30%">时间</th>
+                            <th style="width: 80px">文章数</th>
+                            <th style="width: 120px">操作</th>
+                        </tr>
+                        {{range .TagsList}}
+                        <tr>
+                            <td>{{.Id}}</td>
+                            <td>{{.TagName}}</td>
+                            <td>{{.Created}}</td>
+                            <td>{{.TopicCount}}</td>
+                            <td align="center">
+                                <a href="/admin/tags/edit?id={{.Id}}" class="btn btn-primary btn-xs"
+                                   data-toggle="modal" data-target="#myModal">
+                                    <i class="fa fa-edit"></i>修改
+                                </a>
+                                <a class="btn btn-danger btn-xs" href="javascript:Del('{{.Id}}');">
+                                    <i class="fa fa-trash-o"></i>
+                                </a>
+                            </td>
+                        </tr>
+                        {{end}}
+                        </tbody>
+                    </table>
                 </div>
-                <!-- /. box -->
+                <!-- /.box-body -->
             </div>
-            <!-- /.col -->
+            <!-- /. box -->
         </div>
-        <!-- /.row -->
-    </section>
-
-    <!-- Modal -->
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog modal-sm" role="document">
-
-            <div class="modal-content">
-
-            </div>
-
-        </div>
+        <!-- /.col -->
     </div>
+    <!-- /.row -->
+</section>
 
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-sm" role="document">
+
+        <div class="modal-content">
+
+        </div>
+
+    </div>
 </div>
 
 <!-- Small modal -->
@@ -167,7 +165,7 @@
                     layer.msg(obj.msg, {
                         icon: 1,
                         time: 2000
-                    }, function(){
+                    }, function () {
                         window.location.href = "/admin/tags/list";
                     });
                 } else {

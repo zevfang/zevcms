@@ -10,32 +10,36 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
     <link rel="stylesheet" href="/static/assets/AdminLTE/dist/css/AdminLTE.min.css">
     <link rel="stylesheet" href="/static/assets/AdminLTE/dist/css/skins/_all-skins.min.css">
+    <link rel="stylesheet" href="/static/css/bootstrap.addtabs.css">
+
+
+
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <script type="text/javascript" language="javascript">
-        //iframe自适应内容高度js
-        function iFrameHeight() {
-            //默认高度
-            var defaultHeight = document.getElementById("content-wrapper").scrollHeight
-            //动态设置
-            var ifm = document.getElementById("main-frame");
-            var subWeb = document.frames ? document.frames["main-frame"].document :
-                ifm.contentDocument;
-            if (ifm != null && subWeb != null) {
-                ifm.height = subWeb.body.scrollHeight;
-            }
-        }
-    </script>
 </head>
 <body class="hold-transition skin-blue-light layout-top-nav">
-<div class="wrapper">
+<div>
     {{template "admin/shared/navbar.html" .}}
+
+
     <div id="content-wrapper" class="content-wrapper" style="background-color: #FFFFFF;">
-        <iframe id="main-frame" onload="iFrameHeight()" src="" scrolling="no" frameBorder="no" width="100%"></iframe>
+        <!--<iframe id="main-frame" onload="iFrameHeight()" src="" scrolling="no" frameBorder="no" width="100%"></iframe>-->
+        <div>
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs" id="tabs">
+
+            </ul>
+            <!-- Tab panes -->
+            <div class="tab-content">
+
+            </div>
+        </div>
     </div>
+
+
     {{template "admin/shared/footer.html" .}}
 </div>
 
@@ -43,16 +47,17 @@
 <script src="/static/assets/AdminLTE/bootstrap/js/bootstrap.min.js"></script>
 <script src="/static/assets/AdminLTE/plugins/slimScroll/jquery.slimscroll.min.js"></script>
 <script src="/static/assets/AdminLTE/plugins/fastclick/fastclick.js"></script>
+
+<script src="/static/assets/AdminLTE/plugins/chartjs/Chart.min.js"></script>
+<script src="./static/assets/AdminLTE/dist/js/pages/dashboard2.js"></script>
+
+
 <script src="/static/assets/AdminLTE/dist/js/app.min.js"></script>
 <script src="/static/assets/AdminLTE/dist/js/demo.js"></script>
-
+<script src="/static/js/bootstrap.addtabs.js"></script>
 <script type="text/javascript" language="javascript">
-    //导航切换器
-    $(function () {
-        $(".target-menu").click(function () {
-            var url = $(this).attr("data-url");
-            $("#main-frame").attr("src", url);
-        });
+    $.addtabs({
+        iframeHeight: $(document).height() - 107,
     })
 </script>
 </body>
