@@ -1,10 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<form action="/admin/tags/edit" method="post">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title" id="myModalLabel">修改标签</h4>
+    </div>
 
-</body>
-</html>
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-xs-12">
+
+                {{with .Tags}}
+                <input name="Id" type="hidden" value="{{.Id}}">
+                <div class="form-group">
+                    <label for="TagName" class="control-label sr-only">标签名称</label>
+
+                    <div class="col-sm-12">
+                        <input type="text" class="form-control" id="TagName" name="TagName" value="{{.TagName}}"
+                               placeholder="名称">
+                    </div>
+                </div>
+                {{end}}
+
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="submit" class="btn btn-primary">确认保存</button>
+    </div>
+</form>
+
