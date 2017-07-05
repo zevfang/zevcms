@@ -3,7 +3,6 @@ package controllers
 import (
 	"zevcms/models"
 	"github.com/astaxie/beego"
-	"fmt"
 )
 
 type TagsController struct {
@@ -28,13 +27,19 @@ func (this *TagsController) TagsList() {
 func (this *TagsController) AddTags() {
 
 	if this.Ctx.Request.Method == "POST" {
-		fmt.Println("123")
+
 		tagname := this.Input().Get("TagName")
 		if len(tagname) == 0 {
 			this.Redirect("/admin/tags/list", 302)
 			return
 		}
-		err := models.AddTags(tagname)
+		tagcolor := this.Input().Get("TagColor")
+		if len(tagcolor) == 0 {
+			this.Redirect("/admin/tags/list", 302)
+			return
+		}
+
+		err := models.AddTags(tagname, tagcolor)
 		if err != nil {
 			beego.Error(err)
 			return
@@ -64,7 +69,8 @@ func (this *TagsController) UpdTags() {
 	if this.Ctx.Request.Method == "POST" {
 		tagId := this.Input().Get("Id")
 		tagName := this.Input().Get("TagName")
-		err := models.UpdTags(tagId, tagName)
+		tagColor := this.Input().Get("TagColor")
+		err := models.UpdTags(tagId, tagName, tagColor)
 		if err != nil {
 			beego.Error(err)
 		}

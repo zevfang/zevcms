@@ -9,6 +9,7 @@ import (
 type Tags struct {
 	Id         int64 `orm:"pk;auto"`
 	TagName    string
+	TagColor   string
 	TopicCount int64 `orm:"default(0)"`
 	Created    time.Time `orm:"auto_now_add;type(datetime)"`
 }
@@ -21,8 +22,8 @@ func GetTagsList() ([]*Tags, error) {
 	return tags, err
 }
 
-func AddTags(tagname string) error {
-	tag := &Tags{TagName: tagname}
+func AddTags(tagname, tagcolor string) error {
+	tag := &Tags{TagName: tagname, TagColor: tagcolor}
 	o := orm.NewOrm()
 	_, err := o.Insert(tag)
 	return err
@@ -40,7 +41,7 @@ func GetTagsSingle(tagId string) (*Tags, error) {
 	return tag, err
 }
 
-func UpdTags(tagId, tagName string) error {
+func UpdTags(tagId, tagName, tagColor string) error {
 	tagid, err := strconv.ParseInt(tagId, 10, 64)
 	if err != nil {
 		return err
@@ -49,6 +50,7 @@ func UpdTags(tagId, tagName string) error {
 	o := orm.NewOrm()
 	if err := o.Read(tag); err == nil {
 		tag.TagName = tagName
+		tag.TagColor = tagColor
 		_, err = o.Update(tag)
 	}
 	return err
