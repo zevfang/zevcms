@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="/static/assets/AdminLTE/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="/static/assets/bootstrap-colorpicker/dist/css/bootstrap-colorpicker.css">
     <link rel="stylesheet" href="/static/assets/AdminLTE/dist/css/AdminLTE.min.css">
 
     <!--[if lt IE 9]>
@@ -13,20 +14,9 @@
     <![endif]-->
 
     <title>文章列表</title>
-
 </head>
 <body>
 
-<section class="content-header">
-    <h1>
-        标签列表
-        <small></small>
-    </h1>
-    <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i>首页</a></li>
-        <li class="active">标签管理</li>
-    </ol>
-</section>
 <section class="content">
     <div class="row">
         <div class="col-md-3">
@@ -44,11 +34,23 @@
                             <label for="TagName" class="control-label sr-only">标签名称</label>
 
                             <div class="col-sm-12">
-                                <input type="text" class="form-control" id="TagName" name="TagName"
+                                <input id="TagName" name="TagName" type="text" class="form-control"
                                        placeholder="名称">
                             </div>
                         </div>
-
+                        <div class="form-group">
+                            <label for="TagColor" class="control-label sr-only">标签颜色</label>
+                            <div class="col-sm-12">
+                                <div id="ColorGroup" class="input-group">
+                                    <div class="input-group-addon">
+                                        <i></i>
+                                    </div>
+                                    <input id="TagColor" name="TagColor" type="text" class="form-control"
+                                           placeholder="颜色">
+                                </div>
+                            </div>
+                            <!-- /.input group -->
+                        </div>
                     </div>
                     <!-- /.box-body -->
                     <div class="box-footer">
@@ -70,6 +72,7 @@
                         <tr>
                             <th style="width: 25px">#</th>
                             <th>名称</th>
+                            <th>颜色</th>
                             <th style="width: 30%">时间</th>
                             <th style="width: 80px">文章数</th>
                             <th style="width: 120px">操作</th>
@@ -78,6 +81,7 @@
                         <tr>
                             <td>{{.Id}}</td>
                             <td>{{.TagName}}</td>
+                            <td>{{.TagColor}}</td>
                             <td>{{.Created}}</td>
                             <td>{{.TopicCount}}</td>
                             <td align="center">
@@ -124,11 +128,26 @@
 <script src="/static/assets/AdminLTE/dist/js/app.min.js"></script>
 <script src="/static/assets/AdminLTE/dist/js/demo.js"></script>
 <script src="/static/assets/AdminLTE/plugins/iCheck/icheck.min.js"></script>
+<script src="/static/assets/bootstrap-colorpicker/dist/js/bootstrap-colorpicker.js"></script>
 <script src="/static/assets/bootstrapvalidator/dist/js/bootstrapValidator.js"></script>
 <script src="/static/assets/layer/src/layer.js"></script>
 
 <script type="text/javascript">
     $(function () {
+        $("#ColorGroup").colorpicker({
+            //color:'#00aabb'
+        }).on('changeColor', function(e) {
+            $("#TagColor").val(e.colore.color.toString('rgba'))
+            $('#myForm').bootstrapValidator('validate');
+
+        }).on('hidePicker',function (e) {
+            $("#TagColor").val(e.colore.color.toString('rgba'))
+            //alert($("#TagColor").val())
+            $('#myForm').bootstrapValidator('validate');
+            //var bootstrapValidator = $("#myForm").data('bootstrapValidator');
+            //bootstrapValidator.validate();
+        });
+
         $("#myModal").on("hidden.bs.modal", function () {
             $(this).removeData("bs.modal");
         });
@@ -145,6 +164,12 @@
                     validators: {
                         notEmpty: {
                             message: '请填写标签名称.'
+                        }
+                    }
+                }, TagColor: {
+                    validators: {
+                        notEmpty: {
+                            message: "请选择标签颜色."
                         }
                     }
                 }
