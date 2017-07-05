@@ -21,6 +21,7 @@
     "jquery.cookie": "^1.4.1",
     "AdminLTE": "adminlte#^2.3.11",
     "bootstrapvalidator": "bootstrapValidator#^0.5.3",
-    "layer": "^3.0.3"
+    "layer": "^3.0.3",
+    "bootstrap-colorpicker": "mjolnic-bootstrap-colorpicker#^2.5.1"
   }
 }
