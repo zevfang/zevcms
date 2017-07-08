@@ -1,5 +1,6 @@
 <link rel="stylesheet" href="/static/assets/bootstrap-colorpicker/dist/css/bootstrap-colorpicker.css">
-<form action="/admin/tags/edit" method="post">
+
+<form id="editForm" action="/admin/tags/edit" method="post" class="form-horizontal ">
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                 aria-hidden="true">&times;</span>
@@ -10,26 +11,26 @@
     <div class="modal-body">
         <div class="row">
             <div class="col-xs-12">
-
                 {{with .Tags}}
                 <input name="Id" type="hidden" value="{{.Id}}">
                 <div class="form-group">
-                    <label for="TagName" class="control-label sr-only">标签名称</label>
+                    <label for="TagName" class="col-xs-3 control-label">名称：</label>
 
-                    <div class="col-sm-12">
+                    <div class="col-xs-8">
                         <input type="text" class="form-control" id="TagName" name="TagName" value="{{.TagName}}"
                                placeholder="名称">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="TagColor" class="control-label sr-only">标签颜色</label>
-                    <div class="col-sm-12">
-                        <div id="ColorGroup" class="input-group">
+                    <label for="TagColor" class="col-xs-3 control-label">颜色：</label>
+                    <div class="col-xs-8">
+                        <div id="EditColorGroup" class="input-group">
+
+                            <input id="TagColor" name="TagColor" type="text" value="{{.TagColor}}" class="form-control"
+                                   placeholder="颜色">
                             <div class="input-group-addon">
                                 <i></i>
                             </div>
-                            <input id="TagColor" name="TagColor" type="text" value="{{.TagColor}}" class="form-control"
-                                   placeholder="颜色">
                         </div>
                     </div>
                     <!-- /.input group -->
@@ -43,21 +44,48 @@
         <button type="submit" class="btn btn-primary">确认保存</button>
     </div>
 </form>
+<script src="/static/assets/bootstrap-colorpicker/dist/js/bootstrap-colorpicker.js"></script>
+<script src="/static/assets/bootstrapvalidator/dist/js/bootstrapValidator.js"></script>
 <script type="text/javascript">
     (function ($) {
-        $("#ColorGroup").colorpicker({
-            //color:'#00aabb'
-        }).on('changeColor', function (e) {
-            $("#TagColor").val(e.colore.color.toString('rgba'))
-            $('#myForm').bootstrapValidator('validate');
-
-        }).on('hidePicker', function (e) {
-            $("#TagColor").val(e.colore.color.toString('rgba'))
-            //alert($("#TagColor").val())
-            $('#myForm').bootstrapValidator('validate');
-            //var bootstrapValidator = $("#myForm").data('bootstrapValidator');
-            //bootstrapValidator.validate();
+        $('#editForm').bootstrapValidator({
+            message: 'This value is not valid',
+            feedbackIcons: {
+                valid: 'glyphicon glyphicon-ok',
+                invalid: 'glyphicon glyphicon-remove',
+                validating: 'glyphicon glyphicon-refresh'
+            },
+            fields: {
+                TagName: {
+                    validators: {
+                        notEmpty: {
+                            message: '请填写标签名称.'
+                        }
+                    }
+                }, TagColor: {
+                    validators: {
+                        notEmpty: {
+                            message: "请选择标签颜色."
+                        }
+                    }
+                }
+            },
+            submitHandler: function (validator, form, submitButton) {
+                validator.defaultSubmit();
+            }
         });
+
+        $("#EditColorGroup").colorpicker().on('changeColor', function (e) {
+
+            //$("#TagColor").val(e.colore.color.toString('rgba'))
+
+//            $("#editForm").bootstrapValidator('validate');
+//            var bootstrapValidator = $("#editForm").data('bootstrapValidator');
+//            bootstrapValidator.validate();
+//            alert(bootstrapValidator.isValid())
+        });
+
+
+
     })(jQuery);
 </script>
-<script src="/static/assets/bootstrap-colorpicker/dist/js/bootstrap-colorpicker.js"></script>

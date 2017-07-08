@@ -42,11 +42,12 @@
                             <label for="TagColor" class="control-label sr-only">标签颜色</label>
                             <div class="col-sm-12">
                                 <div id="ColorGroup" class="input-group">
+
+                                    <input id="TagColor" name="TagColor" type="text" class="form-control"
+                                           placeholder="颜色">
                                     <div class="input-group-addon">
                                         <i></i>
                                     </div>
-                                    <input id="TagColor" name="TagColor" type="text" class="form-control"
-                                           placeholder="颜色">
                                 </div>
                             </div>
                             <!-- /.input group -->
@@ -81,7 +82,7 @@
                         <tr>
                             <td>{{.Id}}</td>
                             <td>{{.TagName}}</td>
-                            <td>{{.TagColor}}</td>
+                            <td><div style="width: 20px;height: 20px; background-color:{{.TagColor}}"></div></td>
                             <td>{{.Created}}</td>
                             <td>{{.TopicCount}}</td>
                             <td align="center">
@@ -109,7 +110,7 @@
 
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-dialog modal-sm" style="width:400px" role="document">
 
         <div class="modal-content">
 
@@ -134,6 +135,7 @@
 
 <script type="text/javascript">
     $(function () {
+
         $("#ColorGroup").colorpicker({
             //color:'#00aabb'
         }).on('changeColor', function(e) {
