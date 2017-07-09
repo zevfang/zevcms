@@ -1,4 +1,6 @@
-<form action="/admin/category/edit" method="post">
+<link rel="stylesheet" href="/static/assets/bootstrap-colorpicker/dist/css/bootstrap-colorpicker.css">
+
+<form id="editForm" action="/admin/category/edit" method="post">
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                 aria-hidden="true">&times;</span>
@@ -20,6 +22,20 @@
                                placeholder="名称">
                     </div>
                 </div>
+                <div class="form-group">
+                    <label for="CateColor" class="control-label sr-only">标签颜色</label>
+                    <div class="col-sm-12">
+                        <div id="EditColorGroup" class="input-group">
+
+                            <input id="CateColor" name="CateColor" type="text" class="form-control" value="{{.CateColor}}"
+                                   placeholder="颜色">
+                            <div class="input-group-addon">
+                                <i></i>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.input group -->
+                </div>
                 {{end}}
 
             </div>
@@ -30,3 +46,42 @@
     </div>
 </form>
 
+<script src="/static/assets/bootstrap-colorpicker/dist/js/bootstrap-colorpicker.js"></script>
+<script src="/static/assets/bootstrapvalidator/dist/js/bootstrapValidator.js"></script>
+<script type="text/javascript">
+    (function ($) {
+        $('#editForm').bootstrapValidator({
+            message: 'This value is not valid',
+            feedbackIcons: {
+                valid: 'glyphicon glyphicon-ok',
+                invalid: 'glyphicon glyphicon-remove',
+                validating: 'glyphicon glyphicon-refresh'
+            },
+            fields: {
+                CateName: {
+                    validators: {
+                        notEmpty: {
+                            message: '请填写类型名称.'
+                        }
+                    }
+                }, CateColor: {
+                    validators: {
+                        notEmpty: {
+                            message: "请选择类型颜色."
+                        }
+                    }
+                }
+            },
+            submitHandler: function (validator, form, submitButton) {
+                validator.defaultSubmit();
+            }
+        });
+
+        $("#EditColorGroup").colorpicker().on('changeColor', function (e) {
+
+        });
+
+
+
+    })(jQuery);
+</script>

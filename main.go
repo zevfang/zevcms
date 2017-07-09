@@ -39,6 +39,7 @@ func main() {
 		),
 		beego.NSNamespace("/topic",
 			beego.NSRouter("/list", &controllers.TopicController{}, "get:TopicList"),
+			beego.NSRouter("/add", &controllers.TopicController{}, "get:AddTopic"),
 		),
 	)
 

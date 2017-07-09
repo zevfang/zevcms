@@ -9,6 +9,7 @@ import (
 type Category struct {
 	Id         int64 `orm:"pk;auto"`
 	CateName   string
+	CateColor   string
 	TopicCount int64 `orm:"default(0)"`
 	Created    time.Time `orm:"auto_now_add;type(datetime)"`
 }
@@ -34,14 +35,14 @@ func GetCategorySingle(id string) (*Category, error) {
 
 }
 
-func AddCategory(cateName string) error {
-	cate := &Category{CateName: cateName }
+func AddCategory(cateName, cateColor string) error {
+	cate := &Category{CateName: cateName, CateColor: cateColor }
 	o := orm.NewOrm()
 	_, err := o.Insert(cate)
 	return err
 }
 
-func UpdCategory(id, cateName string) error {
+func UpdCategory(id, cateName, cateColor string) error {
 	cateId, err := strconv.ParseInt(id, 10, 64)
 	if err != nil {
 		return err
@@ -51,6 +52,7 @@ func UpdCategory(id, cateName string) error {
 
 	if o.Read(cate) == nil {
 		cate.CateName = cateName
+		cate.CateColor = cateColor
 		_, err = o.Update(cate)
 	}
 	return err

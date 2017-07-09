@@ -26,11 +26,12 @@ func (this *CategoryController) CategoryList() {
 
 func (this *CategoryController) AddCategory() {
 	cateName := this.Input().Get("CateName")
+	cateColor := this.Input().Get("CateColor")
 	if len(cateName) == 0 {
 		this.Redirect("/admin/category/list", 302)
 		return
 	}
-	err := models.AddCategory(cateName)
+	err := models.AddCategory(cateName, cateColor)
 	if err != nil {
 		beego.Error(err)
 		return
@@ -59,7 +60,8 @@ func (this *CategoryController) UpdCategory() {
 	if this.Ctx.Request.Method == "POST" {
 		cateId := this.Input().Get("Id")
 		cateName := this.Input().Get("CateName")
-		err := models.UpdCategory(cateId, cateName)
+		cateColor := this.Input().Get("CateColor")
+		err := models.UpdCategory(cateId, cateName, cateColor)
 		if err != nil {
 			beego.Error(err)
 		}
