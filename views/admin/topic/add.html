@@ -1,10 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <title>添加文章</title>
+    <link rel="stylesheet" href="/static/assets/AdminLTE/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="/static/assets/AdminLTE/dist/css/AdminLTE.min.css">
+    <!--<link rel="stylesheet" href="/static/assets/bootstrap-markdown-editor/dist/css/bootstrap-markdown-editor.css">-->
+    <link rel="stylesheet" href="/static/assets/editor.md/css/editormd.css">
+
+
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
 </head>
 <body>
+<section class="content">
+    <div class="row">
+        <!-- /.col -->
+        <div class="col-md-12">
+            <form class="form-horizontal">
 
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <input type="text" id="Title" name="Title" class="form-control" placeholder="标题">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <div id="topic-editormd">
+                            <textarea style="display:none;"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+
+            </form>
+
+
+            <!-- /. box -->
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- /.row -->
+</section>
+
+<script src="/static/assets/AdminLTE/plugins/jQuery/jquery-2.2.3.min.js"></script>
+<script src="/static/assets/AdminLTE/bootstrap/js/bootstrap.min.js"></script>
+<script src="/static/assets/editor.md/editormd.min.js"></script>
+<script>
+    var topicEditor;
+
+    $(function () {
+        topicEditor = editormd("topic-editormd", {
+            width: "100%",
+            height: 640,
+            syncScrolling: "single",
+            path: "/static/assets/editor.md/lib/"
+        });
+
+    });
+
+</script>
 </body>
 </html>
